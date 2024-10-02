@@ -26,7 +26,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Doing something
+* Role: Developer
 * Responsibilities: UI
 
 ### Sean Kevin Dias
@@ -35,7 +35,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](http://github.com/seandias)] [[portfolio](team/johndoe.md)]
 
-* Role: Developer
+* Role: Data guy
 * Responsibilities: Data
 
 ### Jean Doe
