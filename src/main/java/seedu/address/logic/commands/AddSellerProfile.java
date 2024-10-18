@@ -9,16 +9,16 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Seller;
 
 /**
- * Adds a person to the address book.
+ * Adds a seller to the address book.
  */
-public class AddClientProfile extends Command {
+public class AddSellerProfile extends Command {
 
-    public static final String COMMAND_WORD = "add";
+    public static final String COMMAND_WORD = "seller";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a seller to the address book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -31,18 +31,19 @@ public class AddClientProfile extends Command {
             //  + PREFIX_TAG + "owesMoney"
             + PREFIX_EMAIL + "johnd@example.com";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New seller added: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This seller already exists in the address book";
 
-    private final Person toAdd;
+    private final Seller toAdd;
 
     /**
-     * Creates an AddClientProfile to add the specified {@code Person}
+     * Creates an AddSellerProfile to add the specified {@code Seller}
      */
-    public AddClientProfile(Person person) {
-        requireNonNull(person);
-        toAdd = person;
+    public AddSellerProfile(Seller seller) {
+        requireNonNull(seller);
+        toAdd = seller;
     }
+
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -62,12 +63,11 @@ public class AddClientProfile extends Command {
             return true;
         }
 
-        // instanceof handles nulls
-        if (!(other instanceof AddClientProfile)) {
+        if (!(other instanceof AddSellerProfile)) {
             return false;
         }
 
-        AddClientProfile otherAddCommand = (AddClientProfile) other;
+        AddSellerProfile otherAddCommand = (AddSellerProfile) other;
         return toAdd.equals(otherAddCommand.toAdd);
     }
 

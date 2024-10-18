@@ -14,11 +14,7 @@ import seedu.address.model.appointment.Appointment;
 import seedu.address.model.appointment.Date;
 import seedu.address.model.appointment.From;
 import seedu.address.model.appointment.To;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Property;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -35,18 +31,21 @@ class JsonAdaptedPerson {
     private final String date;
     private final String from;
     private final String to;
+
+    private final String role;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-             @JsonProperty("date") String date, @JsonProperty("email") String email,
-                             @JsonProperty("tags") List<JsonAdaptedTag> tags,
+    public JsonAdaptedPerson(@JsonProperty("name") String name,@JsonProperty("role") String role,
+                             @JsonProperty("phone") String phone, @JsonProperty("date") String date,
+                             @JsonProperty("email") String email, @JsonProperty("tags") List<JsonAdaptedTag> tags,
                              @JsonProperty("from") String from, @JsonProperty("to") String to,
                             @JsonProperty("property") String property) {
         this.name = name;
+        this.role = role;
         this.phone = phone;
         this.email = email;
         this.date = date;
@@ -63,6 +62,11 @@ class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
+        if (source instanceof Buyer) {
+            role = "buyer";
+        } else {
+            role = "seller";
+        }
         phone = source.getPhone().value;
         email = source.getEmail().value;
         property = source.getProperty().toString();
@@ -130,7 +134,10 @@ class JsonAdaptedPerson {
         final Property modelProperty = new Property(property);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelTags, modelAppointment, modelProperty);
+        if (role.equals("buyer")) {
+            return new Buyer(modelName, modelPhone, modelEmail, modelTags, modelAppointment, modelProperty);
+        } else {
+            return new Seller(modelName, modelPhone, modelEmail, modelTags, modelAppointment, modelProperty);
+        }
     }
-
 }
