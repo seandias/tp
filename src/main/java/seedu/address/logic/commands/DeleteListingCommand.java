@@ -38,6 +38,11 @@ public class DeleteListingCommand extends Command {
         Listing listingToDelete = model.getListingByName(targetName);
 
         if (lastShownList.contains(listingToDelete)) {
+            // Check if the listing has an associated seller
+            if (listingToDelete.getSeller() != null) {
+                throw new CommandException("Cannot delete listing as it has an associated seller.");
+            }
+
             model.deleteListing(listingToDelete);
             return new CommandResult(String.format(MESSAGE_DELETE_LISTING_SUCCESS, listingToDelete.getName()));
         } else {
