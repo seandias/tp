@@ -163,6 +163,11 @@ public class ChatWindow {
                     + "[buyer/{additional buyer names}...]\n"
                     + "Example: removebuyersfromlisting Warton House buyer/Alice buyer/Bob\n"
                     + "Removes the specified buyers from the listing identified by their name.";
+        } else if (Pattern.compile("\\b(m+o+r+e+\\s*i+n+f+o+|i+n+f+o+|v+i+e+w+\\s*d+e+t+a+i+l+s*)\\b.*c+l+i+e+n+t+\\b")
+                .matcher(message).find()) {
+            return "This is how to view more information about a client!\n"
+                    + "Command: moreinfo n/{name}\n"
+                    + "Opens a window displaying detailed information about the specified client.";
         } else if (isGoodbyeMessage(message)) {
             return "Goodbye! Have a great day!";
         } else if (Pattern.compile("\\b(a+d+d+|adding|adds)\\b.*c+l+i+e+n+t+\\b")

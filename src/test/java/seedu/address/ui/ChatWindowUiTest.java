@@ -365,6 +365,15 @@ public class ChatWindowUiTest extends ApplicationTest {
 
     @Test
     @Order(31)
+    public void getResponse_moreInfo_success() {
+        assertEquals("This is how to view more information about a client!\n"
+                        + "Command: moreinfo n/{name}\n"
+                        + "Opens a window displaying detailed information about the specified client.",
+                chatWindow.getResponse("more info client"));
+    }
+
+    @Test
+    @Order(32)
     public void handleSendButtonAction_exitOnGoodbye_success() {
         FxRobot robot = new FxRobot();
         robot.clickOn(userInput);
