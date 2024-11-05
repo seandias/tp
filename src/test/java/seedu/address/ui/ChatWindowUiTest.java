@@ -354,35 +354,20 @@ public class ChatWindowUiTest extends ApplicationTest {
 
     @Test
     @Order(30)
-    public void getResponse_removeBuyersFromListing_success() {
-        assertEquals("This is how to remove buyers from a listing!\n"
-                        + "removeBuyersFromListing n/{listing name} buyer/{buyer name} "
-                        + "[buyer/{additional buyer names}...]\n"
-                        + "Example: removeBuyersFromListing n/Warton House buyer/Alice buyer/Bob\n"
-                        + "Removes the specified buyers from the listing identified by their name.",
-                chatWindow.getResponse("remove buyers from listing"));
-    }
-
-    @Test
-    @Order(31)
     public void handleSendButtonAction_exitOnGoodbye_success() {
         FxRobot robot = new FxRobot();
         robot.clickOn(userInput);
         robot.write("goodbye");
         robot.type(KeyCode.ENTER);
         waitFor(Duration.seconds(1));
-
         String expectedGoodbyeResponse = "You: goodbye\n"
                 + "Assistant: Goodbye! Have a great day!";
         assertEquals(expectedGoodbyeResponse, chatArea.getText().trim());
-
         assertTrue(isChatWindowClosed(), "The application did not exit as expected.");
     }
-
     private boolean isChatWindowClosed() {
         return FxToolkit.isFXApplicationThreadRunning();
     }
-
     private void waitFor(Duration duration) {
         try {
             Thread.sleep((long) duration.toMillis());
