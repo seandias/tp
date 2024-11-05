@@ -249,6 +249,13 @@ public class ChatWindow {
                     + "Can you specify which you are referring to?\n"
                     + "• Show clients\n"
                     + "• Show listings";
+        } else if (Pattern.compile("\\b(view|see|check|today's)\\b.*appointments?\\b").matcher(message).find()) {
+            return "This is how to check today's appointments!\n"
+                    + "Command: today\n"
+                    + "Usage: Shows all clients with appointments scheduled for today.\n"
+                    + "For general listings, you may consider:\n"
+                    + "• showlistings - Displays all listings\n"
+                    + "• showclients - Displays all clients.";
         } else if (Pattern.compile("\\bh+e+l+p+\\b").matcher(message).find()) {
             return "Sure! What do you need help with?";
         } else {
