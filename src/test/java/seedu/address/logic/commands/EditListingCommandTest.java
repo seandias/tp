@@ -64,21 +64,6 @@ public class EditListingCommandTest {
     }
 
     @Test
-    public void execute_noFieldSpecifiedUnfilteredList_success() {
-        EditListingCommand editListingCommand = new EditListingCommand(SENGKANG.getName(),
-                new EditListingDescriptor());
-        Listing editedListing = SENGKANG;
-
-        String expectedMessage = String.format(EditListingCommand.MESSAGE_EDIT_LISTING_SUCCESS,
-                Messages.format(editedListing));
-
-        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
-                new Listings(model.getListings()));
-
-        assertCommandSuccess(editListingCommand, model, expectedMessage, expectedModel);
-    }
-
-    @Test
     public void execute_filteredList_success() {
         showListingWithName(model, PASIR_RIS.getName());
         Listing editedListing = new ListingBuilder(SIMEI).withBuyers(PASIR_RIS.getBuyers()

@@ -156,6 +156,13 @@ public class ChatWindow {
                     + "addBuyersToListing n/{listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
                     + "Example: addBuyersToListing n/Warton House buyer/Alice buyer/Bob\n"
                     + "Adds the specified buyers to the listing identified by its name.";
+        } else if (Pattern.compile("\\b(r+e+m+o+v+e+|removing)\\b.*b+u+y+e+r+s*\\b.*f+r+o+m+.*l+i+s+t+i+n+g+\\b")
+                .matcher(message).find()) {
+            return "This is how to remove buyers from a listing!\n"
+                    + "removeBuyersFromListing n/{listing name} buyer/{buyer name} "
+                    + "[buyer/{additional buyer names}...]\n"
+                    + "Example: removeBuyersFromListing n/Warton House buyer/Alice buyer/Bob\n"
+                    + "Removes the specified buyers from the listing identified by their name.";
         } else if (isGoodbyeMessage(message)) {
             return "Goodbye! Have a great day!";
         } else if (Pattern.compile("\\b(a+d+d+|adding|adds)\\b.*c+l+i+e+n+t+\\b")
