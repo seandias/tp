@@ -314,7 +314,8 @@ public class ChatWindowUiTest extends ApplicationTest {
     public void getResponse_showListing_success() {
         assertEquals("This is how to show your listings!\n"
                         + "showlistings\n"
-                        + "Displays all listings in your system. If there are no listings, it will notify you accordingly.",
+                        + "Displays all listings in your system. If there are no listings, it will notify you "
+                        + "accordingly.",
                 chatWindow.getResponse("show listing"));
     }
 

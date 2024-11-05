@@ -252,13 +252,13 @@ public class ChatWindow {
                     + "For general listings, you may consider:\n"
                     + "• showlistings - Displays all listings\n"
                     + "• showclients - Displays all clients.";
-        }else if (Pattern.compile("\\b(s+h+o+w+|display|view)\\b").matcher(message).find()) {
+        } else if (Pattern.compile("\\b(s+h+o+w+|display|view)\\b").matcher(message).find()) {
             return "It seems you want to show something.\n"
                     + "Can you specify which you are referring to?\n"
                     + "• Show clients-showclients\n"
                     + "• Show listings-showlistings\n"
                     + "• Show today's appointments-today\n";
-        }  else if (Pattern.compile("\\bh+e+l+p+\\b").matcher(message).find()) {
+        } else if (Pattern.compile("\\bh+e+l+p+\\b").matcher(message).find()) {
             return "Sure! What do you need help with?";
         } else {
             return "I'm sorry, I didn't understand that. Can you please \n"
