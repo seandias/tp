@@ -153,15 +153,15 @@ public class ChatWindow {
         } else if (Pattern.compile("\\b(a+d+d+|adding)\\b.*b+u+y+e+r+s*\\b.*t+o+.*l+i+s+t+i+n+g+\\b")
                 .matcher(message).find()) {
             return "This is how to add buyers to a listing!\n"
-                    + "addBuyersToListing {listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
-                    + "Example: addBuyersToListing Warton House buyer/Alice buyer/Bob\n"
+                    + "addbuyerstolisting {listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
+                    + "Example: addbuyerstolisting Warton House buyer/Alice buyer/Bob\n"
                     + "Adds the specified buyers to the listing identified by its name.";
         } else if (Pattern.compile("\\b(r+e+m+o+v+e+|removing)\\b.*b+u+y+e+r+s*\\b.*f+r+o+m+.*l+i+s+t+i+n+g+\\b")
                 .matcher(message).find()) {
             return "This is how to remove buyers from a listing!\n"
-                    + "removeBuyersFromListing {listing name} buyer/{buyer name} "
+                    + "removebuyersfromlisting {listing name} buyer/{buyer name} "
                     + "[buyer/{additional buyer names}...]\n"
-                    + "Example: removeBuyersFromListing Warton House buyer/Alice buyer/Bob\n"
+                    + "Example: removebuyersfromlisting Warton House buyer/Alice buyer/Bob\n"
                     + "Removes the specified buyers from the listing identified by their name.";
         } else if (isGoodbyeMessage(message)) {
             return "Goodbye! Have a great day!";
@@ -212,11 +212,11 @@ public class ChatWindow {
                     + "deleteListing {name}";
         } else if (Pattern.compile("\\b(e+d+i+t+|editing|edits)\\b.*c+l+i+e+n+t+\\b").matcher(message).find()) {
             return "This is how to edit a client!\n"
-                    + "editClient {name} [n/{name}] [p/{phone number}] [e/{email}] [t/{tag}...]\n"
+                    + "editclient {name} [n/{name}] [p/{phone number}] [e/{email}] [t/{tag}...]\n"
                     + "Note: At least one field must be specified to edit a client.";
         } else if (Pattern.compile("\\b(e+d+i+t+|editing|edits)\\b.*l+i+s+t+i+n+g+\\b").matcher(message).find()) {
             return "This is how to edit a listing!\n"
-                    + "editListing {listing name} [n/{listing name} p/{price}] [a/{area}]"
+                    + "editlisting {listing name} [n/{listing name} p/{price}] [a/{area}]"
                     + " [addr/{address}] [r/{region}]\n"
                     + "Note: At least one field must be specified to edit a listing.";
         } else if (Pattern.compile("\\b(s+h+o+w+|display|view)\\b.*c+l+i+e+n+t+s*\\b").matcher(message).find()) {

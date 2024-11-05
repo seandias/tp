@@ -258,8 +258,8 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(20)
     public void getResponse_addBuyersToListing_success() {
         assertEquals("This is how to add buyers to a listing!\n"
-                        + "addBuyersToListing {listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
-                        + "Example: addBuyersToListing Warton House buyer/Alice buyer/Bob\n"
+                        + "addbuyerstolisting {listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
+                        + "Example: addbuyerstolisting Warton House buyer/Alice buyer/Bob\n"
                         + "Adds the specified buyers to the listing identified by its name.",
                 chatWindow.getResponse("add buyer to listing"));
     }
@@ -277,7 +277,7 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(22)
     public void getResponse_editListing_success() {
         assertEquals("This is how to edit a listing!\n"
-                        + "editListing {listing name} [n/{listing name} p/{price}] [a/{area}]"
+                        + "editlisting {listing name} [n/{listing name} p/{price}] [a/{area}]"
                         + " [addr/{address}] [r/{region}]\n"
                         + "Note: At least one field must be specified to edit a listing.",
                 chatWindow.getResponse("edit listing"));
@@ -295,7 +295,7 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(24)
     public void getResponse_editClient_success() {
         assertEquals("This is how to edit a client!\n"
-                        + "editClient {name} [n/{name}] [p/{phone number}] [e/{email}] [t/{tag}...]\n"
+                        + "editclient {name} [n/{name}] [p/{phone number}] [e/{email}] [t/{tag}...]\n"
                         + "Note: At least one field must be specified to edit a client.",
                 chatWindow.getResponse("edit client"));
     }
@@ -356,9 +356,9 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(30)
     public void getResponse_removeBuyersFromListing_success() {
         assertEquals("This is how to remove buyers from a listing!\n"
-                        + "removeBuyersFromListing {listing name} buyer/{buyer name} "
+                        + "removebuyersfromlisting {listing name} buyer/{buyer name} "
                         + "[buyer/{additional buyer names}...]\n"
-                        + "Example: removeBuyersFromListing Warton House buyer/Alice buyer/Bob\n"
+                        + "Example: removebuyersfromlisting Warton House buyer/Alice buyer/Bob\n"
                         + "Removes the specified buyers from the listing identified by their name.",
                 chatWindow.getResponse("remove buyers from listing"));
     }
