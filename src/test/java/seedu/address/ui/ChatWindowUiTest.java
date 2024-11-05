@@ -354,6 +354,17 @@ public class ChatWindowUiTest extends ApplicationTest {
 
     @Test
     @Order(30)
+    public void getResponse_removeBuyersFromListing_success() {
+        assertEquals("This is how to remove buyers from a listing!\n"
+                        + "removeBuyersFromListing n/{listing name} buyer/{buyer name} "
+                        + "[buyer/{additional buyer names}...]\n"
+                        + "Example: removeBuyersFromListing n/Warton House buyer/Alice buyer/Bob\n"
+                        + "Removes the specified buyers from the listing identified by their name.",
+                chatWindow.getResponse("remove buyers from listing"));
+    }
+
+    @Test
+    @Order(31)
     public void handleSendButtonAction_exitOnGoodbye_success() {
         FxRobot robot = new FxRobot();
         robot.clickOn(userInput);
