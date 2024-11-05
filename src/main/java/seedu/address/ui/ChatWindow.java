@@ -153,15 +153,15 @@ public class ChatWindow {
         } else if (Pattern.compile("\\b(a+d+d+|adding)\\b.*b+u+y+e+r+s*\\b.*t+o+.*l+i+s+t+i+n+g+\\b")
                 .matcher(message).find()) {
             return "This is how to add buyers to a listing!\n"
-                    + "addBuyersToListing n/{listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
-                    + "Example: addBuyersToListing n/Warton House buyer/Alice buyer/Bob\n"
+                    + "addBuyersToListing {listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
+                    + "Example: addBuyersToListing Warton House buyer/Alice buyer/Bob\n"
                     + "Adds the specified buyers to the listing identified by its name.";
         } else if (Pattern.compile("\\b(r+e+m+o+v+e+|removing)\\b.*b+u+y+e+r+s*\\b.*f+r+o+m+.*l+i+s+t+i+n+g+\\b")
                 .matcher(message).find()) {
             return "This is how to remove buyers from a listing!\n"
-                    + "removeBuyersFromListing n/{listing name} buyer/{buyer name} "
+                    + "removeBuyersFromListing {listing name} buyer/{buyer name} "
                     + "[buyer/{additional buyer names}...]\n"
-                    + "Example: removeBuyersFromListing n/Warton House buyer/Alice buyer/Bob\n"
+                    + "Example: removeBuyersFromListing Warton House buyer/Alice buyer/Bob\n"
                     + "Removes the specified buyers from the listing identified by their name.";
         } else if (isGoodbyeMessage(message)) {
             return "Goodbye! Have a great day!";
@@ -197,19 +197,19 @@ public class ChatWindow {
         } else if (Pattern.compile("\\b(d+e+l+e+t+e+|deleted|deleting|deletes)\\b.*b+u+y+e+r+\\b")
                 .matcher(message).find()) {
             return "This is how to delete a buyer!\n"
-                    + "delete n/{name}";
+                    + "delete {name}";
         } else if (Pattern.compile("\\b(d+e+l+e+t+e+|deleted|deleting|deletes)\\b.*s+e+l+e+r+\\b")
                 .matcher(message).find()) {
             return "This is how to delete a seller!\n"
-                    + "delete n/{name}";
+                    + "delete {name}";
         } else if (Pattern.compile("\\b(d+e+l+e+t+e+|deleted|deleting|deletes)\\b.*a+p+o+i+n+t+m+e+n+t+\\b")
                 .matcher(message).find()) {
             return "This is how to delete an appointment!\n"
-                    + "delapt n/{name}";
+                    + "delapt {name}";
         } else if (Pattern.compile("\\b(d+e+l+e+t+e+|deleted|deleting|deletes)\\b.*l+i+s+t+i+n+g+\\b")
                 .matcher(message).find()) {
             return "This is how to delete a listing!\n"
-                    + "deleteListing n/{name}";
+                    + "deleteListing {name}";
         } else if (Pattern.compile("\\b(e+d+i+t+|editing|edits)\\b.*c+l+i+e+n+t+\\b").matcher(message).find()) {
             return "This is how to edit a client!\n"
                     + "editClient {name} [n/{name}] [p/{phone number}] [e/{email}] [t/{tag}...]\n"

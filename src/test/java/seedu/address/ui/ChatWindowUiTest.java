@@ -161,7 +161,7 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(11)
     public void getResponse_deleteBuyer_success() {
         assertEquals("This is how to delete a buyer!\n"
-                        + "delete n/{name}",
+                        + "delete {name}",
                 chatWindow.getResponse("delete buyer"));
     }
 
@@ -169,7 +169,7 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(12)
     public void getResponse_deleteSeller_success() {
         assertEquals("This is how to delete a seller!\n"
-                        + "delete n/{name}",
+                        + "delete {name}",
                 chatWindow.getResponse("delete seller"));
     }
 
@@ -177,7 +177,7 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(13)
     public void getResponse_deleteAppointment_success() {
         assertEquals("This is how to delete an appointment!\n"
-                        + "delapt n/{name}",
+                        + "delapt {name}",
                 chatWindow.getResponse("delete appointment"));
     }
 
@@ -258,8 +258,8 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(20)
     public void getResponse_addBuyersToListing_success() {
         assertEquals("This is how to add buyers to a listing!\n"
-                        + "addBuyersToListing n/{listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
-                        + "Example: addBuyersToListing n/Warton House buyer/Alice buyer/Bob\n"
+                        + "addBuyersToListing {listing name} buyer/{buyer name} [buyer/{additional buyer names}...]\n"
+                        + "Example: addBuyersToListing Warton House buyer/Alice buyer/Bob\n"
                         + "Adds the specified buyers to the listing identified by its name.",
                 chatWindow.getResponse("add buyer to listing"));
     }
@@ -287,7 +287,7 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(23)
     public void getResponse_deleteListing_success() {
         assertEquals("This is how to delete a listing!\n"
-                        + "deleteListing n/{name}",
+                        + "deleteListing {name}",
                 chatWindow.getResponse("delete listing"));
     }
 
@@ -356,9 +356,9 @@ public class ChatWindowUiTest extends ApplicationTest {
     @Order(30)
     public void getResponse_removeBuyersFromListing_success() {
         assertEquals("This is how to remove buyers from a listing!\n"
-                        + "removeBuyersFromListing n/{listing name} buyer/{buyer name} "
+                        + "removeBuyersFromListing {listing name} buyer/{buyer name} "
                         + "[buyer/{additional buyer names}...]\n"
-                        + "Example: removeBuyersFromListing n/Warton House buyer/Alice buyer/Bob\n"
+                        + "Example: removeBuyersFromListing Warton House buyer/Alice buyer/Bob\n"
                         + "Removes the specified buyers from the listing identified by their name.",
                 chatWindow.getResponse("remove buyers from listing"));
     }
